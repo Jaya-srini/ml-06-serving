@@ -389,7 +389,7 @@ curl -X POST https://denisecase-ml-penguin-predictor.hf.space/predict \
 
 ## Phase 4 - technical modification
 Extended the serving-core test in the notebook to log model.predict_proba() output alongside the predicted label, surfacing per-class confidence (e.g. {'Adelie': 0.92, 'Chinstrap': 0.05, 'Gentoo': 0.03}) for the same test payload. This makes the model's certainty visible in-notebook and informs whether the /predict endpoint should expose probabilities in addition to the top label.
-- [notebooks/ml_06_serve_model_custom.ipynb](notebooks/ml_06_serve_model_jaya.ipynb)
+- [notebooks/ml_06_serve_model_jaya.ipynb](notebooks/ml_06_serve_model_jaya.ipynb)
 
 ## Custom project- Iris Species Classifier
 
