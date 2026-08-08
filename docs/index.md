@@ -29,69 +29,28 @@ to get the example projects running on your machine.
 - [**Render**](./render.md) - free, easier, CC required
 
 ## Phase 4. Technical Modification
-
-Describe your small technical modification to the example project.
-
-Include:
-
-- What you changed
-- Why you chose that change
-- How you verified that it worked
-- What result, output, chart, metric, or behavior confirmed the change
-
-Compared with the example project,
-explain what is different and why the change matters.
-
-Was it easy, or surprisingly challenging and why do you think so?
+For technical modification - Extended the serving-core test in the notebook to log model.predict_proba() output alongside the predicted label, surfacing per-class confidence (e.g. {'Adelie': 0.92, 'Chinstrap': 0.05, 'Gentoo': 0.03}) for the same test payload. This makes the model's certainty visible in-notebook and informs whether the /predict endpoint should expose probabilities in addition to the top label.
 
 ## Phase 5. Custom Project
 
-Describe your custom project and how you made your modeling decisions.
+### Custom Narrative
 
-Be specific about what changed from the example project.
+**Input contract, and what bad input returns:**
+The `/predict` endpoint requires all four features — `sepal_length`, `sepal_width`,
+`petal_length`, `petal_width` — as numeric values. A missing feature raises a
+`ValueError` in the serving core, which the FastAPI layer converts to an HTTP 400
+with a message like `{"detail": "Missing required feature: 'sepal_length'"}`.
+The server never crashes on bad input.
 
-### Basis and Data
+**What the response includes:**
+The server's `/predict` response returns the label only — `{"prediction": "versicolor"}`.
+Class probabilities (via `model.predict_proba`) are computed and logged in the
+notebook for inspection, but are not currently exposed by the API contract.
 
-Describe the dataset, input, or example you started with.
-
-Include:
-
-- The original example dataset or input
-- The data source
-- Why you chose it, kept it, or changed it
-- Any important limitations or assumptions
-
-### Example Model and Serving Approach
-
-Describe the model being served and how it is deployed.
-
-Include:
-
-- What the model predicts and what inputs it expects
-- How the model was trained and saved
-- How the API receives a request and returns a prediction
-- Where the model is deployed (local, Render, Hugging Face, or other)
-
-### Custom Application
-
-Describe your custom dataset, model, or API changes.
-
-Include:
-
-- What you changed from the example (dataset, model, endpoint, or inputs)
-- Why you made those changes
-- How you verified that your custom model or API works correctly
-
-### Summary
-
-Summarize your custom project.
-
-Include:
-
-- How you implemented your custom model or API
-- What results you got
-- What you learned
-- How well you exercised the skills covered in this project
-- What kinds of real problems you could apply these skills to in the future
-
-Display at least one image or screenshot showing your work.
+**Confirming the served model matches the saved one:**
+Both `model_builder_custom.py` and `serve_custom.py` point at the same
+`MODEL_PATH` (`artifacts/model_custom.joblib`). At server startup, the log line
+`Model loaded successfully` confirms the file loaded without error. To verify
+they agree on predictions, the same payload was tested in-process in the notebook
+(Section 5) and via `curl` against the running server — both returned `versicolor`
+for the same input, confirming the served model matches the saved one.

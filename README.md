@@ -389,6 +389,32 @@ curl -X POST https://denisecase-ml-penguin-predictor.hf.space/predict \
 
 ## Phase 4 - technical modification
 Extended the serving-core test in the notebook to log model.predict_proba() output alongside the predicted label, surfacing per-class confidence (e.g. {'Adelie': 0.92, 'Chinstrap': 0.05, 'Gentoo': 0.03}) for the same test payload. This makes the model's certainty visible in-notebook and informs whether the /predict endpoint should expose probabilities in addition to the top label.
+- [notebooks/ml_06_serve_model_custom.ipynb](notebooks/ml_06_serve_model_jaya.ipynb)
+
+## Custom project- Iris Species Classifier
+
+This custom project follows the same publish-and-serve pattern as the example,
+applied to a different dataset.
+
+Instead of predicting penguin species from bill/flipper measurements, this
+version trains a `RandomForestClassifier` on the **Iris** dataset to predict
+flower **species** (`setosa`, `versicolor`, `virginica`) from four measurements:
+`sepal_length`, `sepal_width`, `petal_length`, `petal_width`.
+
+It reuses the same three-part structure — a saved model artifact
+(`artifacts/model_custom.joblib`), a testable serving core, and a thin FastAPI
+layer — to show that the serving pattern generalizes to any classification
+model, not just the example dataset.
+
+**Files:**
+- [src/mlstudio/model_builder_custom.py](src/mlstudio/model_builder_custom.py) — trains and saves the model
+- [src/mlstudio/serve_custom.py](src/mlstudio/serve_custom.py) — serving core + FastAPI app
+- [notebooks/ml_06_serve_model_custom.ipynb](notebooks/ml_06_serve_model_custom.ipynb) — trains, tests, and documents the workflow
+
+**Run it:**
+```shell
+uv run python -m mlstudio.model_builder_custom
+uv run fastapi dev src/mlstudio/serve_custom.py --port 8001
 
 ## Findings and Visuals
 
