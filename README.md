@@ -416,29 +416,6 @@ model, not just the example dataset.
 uv run python -m mlstudio.model_builder_custom
 uv run fastapi dev src/mlstudio/serve_custom.py --port 8001
 
-## Findings and Visuals
-
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
-
-In your custom project, follow this example, but
-
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
-
-Remove unnecessary instructional comments in your custom files.
-
-Update figures to present interesting results from your custom project:
-
-![Provide a Useful Caption](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
-
 ## Project Documentation
 
 Additional project instructions, terms, and notes:
