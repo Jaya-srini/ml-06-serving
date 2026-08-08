@@ -125,7 +125,7 @@ open a machine terminal in your `Repos` folder:
 
 ```shell
 # Replace username with YOUR GitHub username.
-git clone https://github.com/username/ml-06-serving
+git clone https://github.com/jaya-srini/ml-06-serving
 
 cd ml-06-serving
 code .
@@ -371,6 +371,8 @@ It is a bit harder to set up (they use their own repo and we upload files via th
 No credit card is required.
 See the docs/ for more.
 
+
+
 Customize the request to see what species is predicted:
 
 ```shell
@@ -384,6 +386,9 @@ curl -X POST https://denisecase-ml-penguin-predictor.hf.space/predict \
      -H "Content-Type: application/json" \
      -d '{"bill_length_mm": 39.1, "bill_depth_mm": 18.7, "flipper_length_mm": 181, "body_mass_g": 3750}'
 ```
+
+## Phase 4 - technical modification
+Extended the serving-core test in the notebook to log model.predict_proba() output alongside the predicted label, surfacing per-class confidence (e.g. {'Adelie': 0.92, 'Chinstrap': 0.05, 'Gentoo': 0.03}) for the same test payload. This makes the model's certainty visible in-notebook and informs whether the /predict endpoint should expose probabilities in addition to the top label.
 
 ## Findings and Visuals
 

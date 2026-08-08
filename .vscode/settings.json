@@ -12,6 +12,7 @@
   // OBS: This helps prevent VS Code from guessing Homebrew Python,
   // Apple Python, Windows Store Python, system Python, or another local interpreter.
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv",
+  "jupyter.notebookFileRoot": "${workspaceFolder}",
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff"
   },
