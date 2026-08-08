@@ -740,3 +740,58 @@ dtype: int64
 2026-08-07 20:01:13 | INFO | M06 | Loading model from: artifacts/model_custom.joblib
 2026-08-07 20:01:13 | INFO | M06 | Model loaded successfully
 2026-08-07 20:01:13 | INFO | M06 | Model loaded successfully
+2026-08-07 20:17:27 | INFO | M06 | === RUN START ===
+2026-08-07 20:17:27 | INFO | M06 | project=M06
+2026-08-07 20:17:27 | INFO | M06 | repo_dir=ml-06-serving
+2026-08-07 20:17:27 | INFO | M06 | python=3.14.6
+2026-08-07 20:17:27 | INFO | M06 | os=Darwin 23.6.0
+2026-08-07 20:17:27 | INFO | M06 | shell=zsh
+2026-08-07 20:17:27 | INFO | M06 | cwd=.
+2026-08-07 20:17:27 | INFO | M06 | github_actions=False
+2026-08-07 20:17:27 | INFO | M06 | === RUN START ===
+2026-08-07 20:17:27 | INFO | M06 | project=M06
+2026-08-07 20:17:27 | INFO | M06 | repo_dir=ml-06-serving
+2026-08-07 20:17:27 | INFO | M06 | python=3.14.6
+2026-08-07 20:17:27 | INFO | M06 | os=Darwin 23.6.0
+2026-08-07 20:17:27 | INFO | M06 | shell=zsh
+2026-08-07 20:17:27 | INFO | M06 | cwd=.
+2026-08-07 20:17:27 | INFO | M06 | github_actions=False
+2026-08-07 20:17:27 | INFO | M06 | Loading model from: artifacts/model_custom.joblib
+2026-08-07 20:17:27 | INFO | M06 | Model loaded successfully
+2026-08-07 20:17:27 | INFO | M06 | === RUN START ===
+2026-08-07 20:17:27 | INFO | M06 | project=M06
+2026-08-07 20:17:27 | INFO | M06 | repo_dir=ml-06-serving
+2026-08-07 20:17:27 | INFO | M06 | python=3.14.6
+2026-08-07 20:17:27 | INFO | M06 | os=Darwin 23.6.0
+2026-08-07 20:17:27 | INFO | M06 | shell=zsh
+2026-08-07 20:17:27 | INFO | M06 | cwd=.
+2026-08-07 20:17:27 | INFO | M06 | github_actions=False
+2026-08-07 20:17:27 | INFO | M06 | Confirming installation:
+2026-08-07 20:17:27 | INFO | M06 |   python:       3.14.6
+2026-08-07 20:17:27 | INFO | M06 |   pandas:       3.0.5
+2026-08-07 20:17:27 | INFO | M06 | Model artifact will be saved to: artifacts/model_custom.joblib
+2026-08-07 20:17:27 | INFO | M06 | Loading dataset: iris
+2026-08-07 20:17:27 | INFO | M06 | Loading dataset: iris
+2026-08-07 20:17:27 | INFO | M06 | Loaded: 150 rows, 5 columns
+2026-08-07 20:17:27 | INFO | M06 | Model rows (after dropping missing): 150
+2026-08-07 20:17:27 | INFO | M06 | Model rows: 150
+2026-08-07 20:17:27 | INFO | M06 | Classes in 'species': ['setosa', 'versicolor', 'virginica']
+2026-08-07 20:17:27 | INFO | M06 | Train instances: 120
+2026-08-07 20:17:27 | INFO | M06 | Test instances:  30
+2026-08-07 20:17:27 | INFO | M06 | Train instances: 120
+2026-08-07 20:17:27 | INFO | M06 | Test instances:  30
+2026-08-07 20:17:27 | INFO | M06 | Training RandomForestClassifier on 120 instances
+2026-08-07 20:17:27 | INFO | M06 | Training complete
+2026-08-07 20:17:27 | INFO | M06 | Saved model to: artifacts/model_custom.joblib
+2026-08-07 20:17:27 | INFO | M06 | Reloaded model from: artifacts/model_custom.joblib
+2026-08-07 20:17:27 | INFO | M06 | Class probabilities -> {'setosa': np.float64(0.0), 'versicolor': np.float64(1.0), 'virginica': np.float64(0.0)}
+2026-08-07 20:17:27 | INFO | M06 | Valid payload -> {'prediction': 'versicolor'}
+2026-08-07 20:17:27 | INFO | M06 | Invalid payload handled cleanly -> ValueError: Missing required feature: 'sepal_width'
+2026-08-07 20:17:27 | INFO | M06 | ========================
+2026-08-07 20:17:27 | INFO | M06 | SUMMARY
+2026-08-07 20:17:27 | INFO | M06 | ========================
+2026-08-07 20:17:27 | INFO | M06 | Dataset:  iris
+2026-08-07 20:17:27 | INFO | M06 | Target:   species
+2026-08-07 20:17:27 | INFO | M06 | Features: ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
+2026-08-07 20:17:27 | INFO | M06 | Artifact: artifacts/model_custom.joblib
+2026-08-07 20:17:27 | INFO | M06 | ========================
